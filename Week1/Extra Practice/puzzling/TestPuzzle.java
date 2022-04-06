@@ -5,7 +5,6 @@ public class TestPuzzle {
         PuzzleJava puzzleTest = new PuzzleJava();
 
         System.out.println("\n----getTenRolls Test----");
-        // puzzleTest.getTenRolls();
         System.out.println(puzzleTest.getTenRolls());
 
         System.out.println("\n----getRandomLetter test----");
@@ -16,5 +15,8 @@ public class TestPuzzle {
 
         System.out.println("\n----getNewPasswordSet test----");
         System.out.println(puzzleTest.getNewPasswordSet(3));
+
+        System.out.println("\n----shuffleArray test----");
+        puzzleTest.shuffleArray();
     }
 }

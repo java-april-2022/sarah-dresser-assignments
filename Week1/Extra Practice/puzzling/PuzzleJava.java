@@ -38,4 +38,16 @@ public class PuzzleJava {
         }
         return passwordList;
     }
+
+    public void shuffleArray(){
+        char[] passwordChars = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%".toCharArray();
+        for(int i=0; i<passwordChars.length; i++){
+            int randInt1 = randMachine.nextInt(passwordChars.length);
+            int randInt2 = randMachine.nextInt(passwordChars.length);
+            char temp = passwordChars[randInt1];
+            passwordChars[randInt1] = passwordChars[randInt2];
+            passwordChars[randInt2] = temp;
+        }
+        System.out.println(passwordChars);
+    }
 }
