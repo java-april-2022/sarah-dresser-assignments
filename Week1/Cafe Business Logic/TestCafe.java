@@ -30,7 +30,7 @@ public class TestCafe {
         Double[] prices = {1.5, 3.5, 4.0, 4.5};
         ArrayList<Double> priceList = new ArrayList<Double>(Arrays.asList(prices));
 
-
+        // **ERROR** did not like priceList.add(num) because not specified Double
         // ArrayList<Double> priceList = new ArrayList<Double>();
         // priceList.add(2.0);
         // priceList.add(3.0);
@@ -38,8 +38,6 @@ public class TestCafe {
         // priceList.add(4.0);
 
         appTest.displayMenu(menu);
-
-        // ERROR: Exception in thread "main" java.util.IllegalFormatConversionException: d != java.lang.Double
         appTest.displayMenu(menu, priceList);
     
         System.out.println("\n----- Add Customer Test-----");
