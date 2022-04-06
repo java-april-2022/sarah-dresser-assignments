@@ -32,7 +32,7 @@ public class CafeUtil {
             return false;
         }
         for(int i=0; i<=menuItems.size()-1; i++){
-            System.out.printf("\n%d %s -- %d", i, menuItems.get(i), prices.get(i));
+            System.out.printf("\n%d %s -- $%.2f", i, menuItems.get(i), prices.get(i));
         }
         return true;
     }

@@ -27,17 +27,20 @@ public class TestCafe {
         menu.add("latte");
         menu.add("mocha");
 
-        // double[] priceList = {3.5, 1.5, 4.0, 4.5};
-        ArrayList<Double> priceList = new ArrayList<Double>();
-        priceList.add(2.0);
-        priceList.add(3.0);
-        priceList.add(3.5);
-        priceList.add(4.0);
+        Double[] prices = {1.5, 3.5, 4.0, 4.5};
+        ArrayList<Double> priceList = new ArrayList<Double>(Arrays.asList(prices));
+
+
+        // ArrayList<Double> priceList = new ArrayList<Double>();
+        // priceList.add(2.0);
+        // priceList.add(3.0);
+        // priceList.add(3.5);
+        // priceList.add(4.0);
 
         appTest.displayMenu(menu);
 
         // ERROR: Exception in thread "main" java.util.IllegalFormatConversionException: d != java.lang.Double
-        // appTest.displayMenu(menu, priceList);
+        appTest.displayMenu(menu, priceList);
     
         System.out.println("\n----- Add Customer Test-----");
         ArrayList<String> customers = new ArrayList<String>();
