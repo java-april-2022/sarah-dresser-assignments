@@ -26,6 +26,16 @@ public class CafeUtil {
             System.out.printf("%d %s\n", i, item);
         }
     }
+    // overloading displayMenu w/ price list
+    public boolean displayMenu(ArrayList<String> menuItems, ArrayList<Double> prices){
+        if(menuItems.size() != prices.size()){
+            return false;
+        }
+        for(int i=0; i<=menuItems.size()-1; i++){
+            System.out.printf("\n%d %s -- %d", i, menuItems.get(i), prices.get(i));
+        }
+        return true;
+    }
 
     public void addCustomer(ArrayList<String> customers){
         System.out.println("Please enter your name:");
@@ -38,5 +48,22 @@ public class CafeUtil {
             System.out.println(customer);
         }
     }
-    
+
+    public void printPriceChart(String product, double price, int maxQuantity){
+        System.out.printf("%S", product);
+        for(int i=1; i<=maxQuantity; i++){
+            System.out.printf("\n%d - $%.2f", i, i*price);
+        }
+    }
+    // senpai challenge: $0.50 discount from original price per quantity
+    public void printPriceChartDiscount(String product, double price, int maxQuantity){
+        System.out.printf("\n\n%S", product);
+        for(int i=1; i<=maxQuantity; i++){
+            double discount = 0;
+            if(i>1){
+                discount = 0.5*(i-1);
+            }
+            System.out.printf("\n%d - $%.2f", i, i*(price - discount));
+        }
+    }
 }
