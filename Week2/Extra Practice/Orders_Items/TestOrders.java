@@ -66,9 +66,25 @@ public class TestOrders {
     // System.out.printf("\nOrder 1 Total:", order1.total);
     
     // System.out.printf("Name: %s\n", order1.name);
-    System.out.printf("Total: %s\n", order2.total);
-    System.out.printf("Total: %s\n", order3.total);
-    System.out.printf("Total: %s\n", order4.total);
-    System.out.printf("%s, your order is ready: %s\n", order1.name, order1.ready);
+    // System.out.printf("Total: %s\n", order2.total);
+    // System.out.printf("Total: %s\n", order3.total);
+    // System.out.printf("Total: %s\n", order4.total);
+    // System.out.printf("%s, your order is ready: %s\n", order1.name, order1.ready);
+
+    System.out.printf("\nName: %s\n", order1.name);
+    System.out.printf("Total: $%.2f\n", order1.total);
+    System.out.printf("Ready: %s\n", order1.ready);
+
+    System.out.printf("\nName: %s\n", order2.name);
+    System.out.printf("Total: $%.2f\n", order2.total);
+    System.out.printf("Ready: %s\n", order2.ready);
+
+    System.out.printf("\nName: %s\n", order3.name);
+    System.out.printf("Total: $%.2f\n", order3.total);
+    System.out.printf("Ready: %s\n", order3.ready);
+
+    System.out.printf("\nName: %s\n", order4.name);
+    System.out.printf("Total: $%.2f\n", order4.total);
+    System.out.printf("Ready: %s\n", order4.ready);
     }
 }
