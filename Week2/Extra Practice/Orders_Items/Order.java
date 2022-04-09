@@ -5,5 +5,7 @@ public class Order {
     public String name;
     public double total;
     public boolean ready;
-    public ArrayList<Item> items;
+
+    // assign an instance to items, otherwise would have to create each individual instance in TestOrders
+    public ArrayList<Item> items = new ArrayList<Item>();
 }
