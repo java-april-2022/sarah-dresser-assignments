@@ -27,7 +27,7 @@ public class BankAccount {
             allAccountsBalance += amount;
         }
         else{
-            System.out.println("Please specify an account: Checking or Savings");
+            System.out.println("\nPlease specify an account: Checking or Savings");
         }
     }
 
@@ -36,7 +36,7 @@ public class BankAccount {
     public void withdraw(String accountType, double amount){
         if((accountType == "checking") | (accountType == "Checking")){
             if(this.checkingBalance < amount){
-                System.out.println("Unable to withdraw: insufficient funds");
+                System.out.println("\nUnable to withdraw: insufficient funds");
             }
             else{
                 this.checkingBalance -= amount;
@@ -44,7 +44,7 @@ public class BankAccount {
             }
         if((accountType == "savings") | (accountType == "Savings")){
             if(this.savingsBalance < amount){
-                System.out.println("Unable to withdraw: insufficient funds");
+                System.out.println("\nUnable to withdraw: insufficient funds");
             }
             else{
                 this.savingsBalance -= amount;
@@ -54,13 +54,18 @@ public class BankAccount {
         }
     }
 
+    public double getAccountTotal(){
+        double totalAmount = this.checkingBalance + this.savingsBalance;
+        return totalAmount;
+    }
+
     // GETTERS
     public double getCheckingBalance(){
-        return checkingBalance;
+        return this.checkingBalance;
     }
 
     public double getSavingsBalance() {
-        return savingsBalance;
+        return this.savingsBalance;
     }
 
     public static double getAllAccountsBalance() {
