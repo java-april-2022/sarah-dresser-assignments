@@ -34,12 +34,22 @@ public class Order {
         }
     }
 
+    // method for getting order total for each customer
     public double getOrderTotal(){
-        for(int i = 0; i < items.size(); i++){
-            double total = 0;
-            total += items[i].getPrice();
-            return total;
+        double total = 0;
+        for(Item i: this.items){
+            total += i.getPrice();
         }
+        return total;
+    }
+
+    // display name, items, and total for each order
+    public void display(){
+        System.out.printf("Customer name: %s\n", this.name);
+        for(Item i: this.items){
+            System.out.printf("%s - $%.2f\n", i.getName(), i.getPrice());
+        }
+        System.out.printf("Total: %.2f", this.getOrderTotal());
     }
 
     // getters(accessors) and setters(mutators)

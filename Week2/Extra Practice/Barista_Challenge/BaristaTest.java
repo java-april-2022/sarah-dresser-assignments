@@ -18,5 +18,8 @@ public class BaristaTest {
         // System.out.println("Order2: " + order2.getItems());
         
         System.out.println(order2.getStatusMessage());
+
+        // testing display() method
+        order2.display();
     }
 }
