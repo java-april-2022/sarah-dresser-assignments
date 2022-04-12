@@ -25,6 +25,15 @@ public class Order {
         this.items.add(item);
     }
 
+    public String getStatusMessage(){
+        if(this.ready == true){
+            return "Your order is ready!";
+        }
+        else{
+            return "Sorry, not ready yet.";
+        }
+    }
+
     // getters(accessors) and setters(mutators)
     // GETTERS
     public String getName() {
