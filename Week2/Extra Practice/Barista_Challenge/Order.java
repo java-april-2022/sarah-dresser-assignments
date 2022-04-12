@@ -1,27 +1,32 @@
 import java.util.ArrayList;
 
 public class Order {
-    // private member variables
+    // MEMBER VARIABLES
     private String name;
     private boolean ready;
     private ArrayList<Item> items;
 
-    // constructor w/ no params, sets name = "Guest"
+    // CONSTRUCTOR w/ no params, sets name = "Guest"
     public Order(){
         this.name = "Guest";
         this.items = new ArrayList<Item>();
         this.ready = false;
     }
 
-    // overloaded constructor w/ name param
+    // OVERLOADED CONSTRUCTOR w/ name param
     public Order(String name){
         this.name = name;
         this.items = new ArrayList<Item>();
         this.ready = false;
     }
 
+    // METHODS
+    public void addItems(Item item){
+        this.items.add(item);
+    }
+
     // getters(accessors) and setters(mutators)
-    // getters:
+    // GETTERS
     public String getName() {
         return name;
     }
@@ -34,7 +39,7 @@ public class Order {
         return ready;
     }
 
-    // setters:
+    // SETTERS
     public void setName(String name) {
         this.name = name;
     }
@@ -46,5 +51,4 @@ public class Order {
     public void setReady(boolean ready) {
         this.ready = ready;
     }
-    
 }
