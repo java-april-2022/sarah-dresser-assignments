@@ -2,7 +2,7 @@ public class TestBankAccount {
     public static void main(String[] args) {
         BankAccount account1 = new BankAccount(200.00, 1000.00);
         BankAccount account2 = new BankAccount(444000, 444000);
-        
+
         // confirming savingsBalance is not accessible:
         // account1.savingsBalance = 3000.0;
 
@@ -18,7 +18,7 @@ public class TestBankAccount {
         
         // check deposit and withdrawal methods
         account2.withdraw("Checking", 8800);
-        System.out.printf("\nNew checking balance: $%.2f", account2.getCheckingBalance());
+        // System.out.printf("\nNew checking balance: $%.2f", account2.getCheckingBalance());
 
         account1.deposit("savings", 500);
         // check over-withdrawal
