@@ -21,10 +21,13 @@ public class BankAccount {
         if((accountType == "checking") | (accountType == "Checking")){
             this.checkingBalance += amount;
             allAccountsBalance += amount;
+            System.out.printf("\nNew Checking Account Balance: $%.2f", this.checkingBalance);
         }
         if((accountType == "savings") | (accountType == "Savings")){
             this.savingsBalance += amount;
             allAccountsBalance += amount;
+            System.out.printf("\nNew Savings Account Balance: $%.2f", this.savingsBalance);
+
         }
         else{
             System.out.println("\nPlease specify an account: Checking or Savings");

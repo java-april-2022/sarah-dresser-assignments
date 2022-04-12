@@ -2,6 +2,7 @@ public class TestBankAccount {
     public static void main(String[] args) {
         BankAccount account1 = new BankAccount(200.00, 1000.00);
         BankAccount account2 = new BankAccount(444000, 444000);
+        
         // confirming savingsBalance is not accessible:
         // account1.savingsBalance = 3000.0;
 
