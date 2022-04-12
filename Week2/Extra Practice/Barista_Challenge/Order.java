@@ -34,6 +34,14 @@ public class Order {
         }
     }
 
+    public double getOrderTotal(){
+        for(int i = 0; i < items.size(); i++){
+            double total = 0;
+            total += items[i].getPrice();
+            return total;
+        }
+    }
+
     // getters(accessors) and setters(mutators)
     // GETTERS
     public String getName() {
