@@ -20,4 +20,9 @@ public class FirstprojectApplication {
 	public String hello() {
 		return "Hello World!";
 	}
+	
+	@RequestMapping("/new_route")
+	public String myMessage() {
+		return "Wow, you found my secret page!";
+	}
 }
