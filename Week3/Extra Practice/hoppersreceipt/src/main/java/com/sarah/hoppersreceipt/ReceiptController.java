@@ -16,7 +16,12 @@ public class ReceiptController {
 		String description = "Metal strips, also an illustration of nanoseconds.";
 		String vendor = "Little Things Corner Store";
 		
-		
+		// adding variables to model
+		model.addAttribute(name);
+		model.addAttribute(itemName);
+		model.addAttribute(price);
+		model.addAttribute(description);
+		model.addAttribute(vendor);
 		
 		return "index.jsp";
 	}
