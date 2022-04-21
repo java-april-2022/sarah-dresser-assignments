@@ -19,6 +19,8 @@ public class ItemController {
 	    fruits.add(new Item("Mango", 2.0));
 	    fruits.add(new Item("Goji Berries", 4.0));
 	    fruits.add(new Item("Guava", .75));
+	    fruits.add(new Item("Starfruit", 2.0));
+	    fruits.add(new Item("Dragon Fruit", 3.5));
 	        
 	    // Add fruits your view model here
 	    model.addAttribute("allFruits", fruits);

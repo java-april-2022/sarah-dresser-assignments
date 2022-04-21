@@ -17,11 +17,11 @@ public class ReceiptController {
 		String vendor = "Little Things Corner Store";
 		
 		// adding variables to model
-		model.addAttribute(name);
-		model.addAttribute(itemName);
-		model.addAttribute(price);
-		model.addAttribute(description);
-		model.addAttribute(vendor);
+		model.addAttribute("name", name);
+		model.addAttribute("itemName", itemName);
+		model.addAttribute("price", price);
+		model.addAttribute("description", description);
+		model.addAttribute("vendor", vendor);
 		
 		return "index.jsp";
 	}
