@@ -16,7 +16,8 @@ public class MainController {
 	
 	@RequestMapping("/date")
 	public String getDate(Model model) {
-		
+		Date currentDate = new Date();
+		model.addAttribute("date", currentDate);
 		return "date.jsp";
 	}
 	
