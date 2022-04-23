@@ -9,6 +9,6 @@
 <title>Date</title>
 </head>
 <body>
-	
+	<h1><c:out value="date"></c:out></h1>
 </body>
 </html>
