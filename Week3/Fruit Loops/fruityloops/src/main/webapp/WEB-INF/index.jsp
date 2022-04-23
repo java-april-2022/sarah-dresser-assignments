@@ -12,6 +12,24 @@
 
 </head>
 <body>
-
+	<h1>Fruity Loops Store</h1>
+	
+	<table class="table table-striped table-hover">
+		<thead class="thead-light">
+			<tr>
+				<th>Fruit</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="fruit" items="${allFruits}">
+			<tr>
+				<td><c:out value="${ fruit.name }"></c:out></td>
+				<td><c:out value="$${ fruit.price }"></c:out></td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	
 </body>
 </html>
