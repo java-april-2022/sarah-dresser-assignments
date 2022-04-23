@@ -1,0 +1,20 @@
+.date-title{
+	margin: 10% 0px;
+	color: blue;
+	text-align: center;
+}
+
+.time-title{
+	margin: 10% 0px;
+	color: green;
+	text-align: center;
+}
+
+.link-row{
+	padding: 10%;
+}
+
+/* .links{
+	display: flex;
+	justify-content: space-between;	
+} */

@@ -11,7 +11,15 @@
 
 </head>
 <body>
+<div class="container">
+<div class="row link-row">
+	<div class="col">
 	<a href="/date">Date Template</a>
+	</div>
+	<div class="col">
 	<a href="/time">Time Template</a>
+	</div>
+</div>
+</div>
 </body>
 </html>

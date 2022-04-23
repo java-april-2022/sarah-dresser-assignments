@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Date</title>
+<title>Time</title>
 
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/styles.css">
-<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>	
 </head>
 <body>
-	<h1 class="date-title"><c:out value="${ dateString }"></c:out></h1>
+	<h1 class="time-title"><c:out value="${ timeString }"></c:out></h1>
 	
 	<a href="/">Home</a>
 </body>
