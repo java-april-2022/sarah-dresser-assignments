@@ -29,6 +29,8 @@ h1{
 	margin: 20px 20%;
 	padding: 5% 15%;
 	text-align: center;
+	border-radius: 10px;
+	border: 2px dashed cadetblue;
 }
 
 a{
