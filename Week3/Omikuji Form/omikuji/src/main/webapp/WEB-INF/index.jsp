@@ -6,22 +6,23 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Omikuji Form</title>
+<title>Omikuji</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<h1>Send an Omikuji</h1>
+<h1>Send an Omikuji &#128158;</h1>
 
 <div class="container box">
 
-<form action="submit" method="post">
+<form action="/submit" method="post">
   <div class="row">
     <div class="col-md-4">
       <label for="pickNum">Pick a number from 5 to 25:</label>
       <input type="number" name="pickNum" min="5" max="25" class="form-control">
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col">
       <label for="city">Enter the name of any city:</label>
@@ -32,6 +33,7 @@
     	<input type="text" class="form-control" name="person">
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col">
       <label for="hobby">Enter professional endeavor or hobby:</label>
@@ -42,6 +44,7 @@
     	<input type="text" class="form-control" name="livingThing">
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-md-12">
       <label for="kindWords">Say something nice to someone:</label>
@@ -49,8 +52,9 @@
       </textarea>
     </div>
   </div>
+  <br>
   <p><em>Send and show a friend</em></p>
-  <button class="btn btn-light" type="submit">Send</button>
+  <button class="btn btn-light" type="submit"><b>Send</b></button>
 </form>
 </div>
 </body>
