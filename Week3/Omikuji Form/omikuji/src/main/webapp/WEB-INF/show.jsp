@@ -20,7 +20,7 @@
 	</h3>
 </div>
 
-<a href="/omikuji">Send another</a>
+<a href="/omikuji"><h5>Send another</h5></a>
 
 </body>
 </html>
