@@ -7,8 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>You Again?</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<h2>You have visited <a href="/">this website</a> <c:out value=""> times</c:out></h2>
+	<h1>You have visited<a href="/">this website</a> <c:out value="${ count }"></c:out> time(s)</h1>
+	<a href="/reset">Reset Counter</a>
 </body>
 </html>

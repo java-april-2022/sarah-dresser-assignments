@@ -8,9 +8,11 @@
 <meta charset="ISO-8859-1">
 <title>Welcome...I Think?</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 	<h1>Welcome User!</h1>
+	
+	<a href="/counter">See Visits</a>
 </body>
 </html>
