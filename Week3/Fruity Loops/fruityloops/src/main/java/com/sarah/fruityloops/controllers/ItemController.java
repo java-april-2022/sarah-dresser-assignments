@@ -24,7 +24,7 @@ public class ItemController {
 	        
 	    // Add fruits your view model here
 	    model.addAttribute("allFruits", fruits);
-	        
+	    model.addAttribute("numFruits", fruits.size());
 	    return "index.jsp";
 	}
 }

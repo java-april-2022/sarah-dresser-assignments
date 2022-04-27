@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
     
 <!DOCTYPE html>
 <html>
@@ -24,12 +25,14 @@
 		<tbody>
 			<c:forEach var="fruit" items="${allFruits}">
 			<tr>
-				<td><c:out value="${ fruit.name }"></c:out></td>
+				<td>${ fruit.name }</td>
 				<td><c:out value="$${ fruit.price }"></c:out></td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<h3>Number of Fruits: ${ numFruits }</h3>
 	
 </body>
 </html>
