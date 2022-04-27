@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	
 	@RequestMapping("/")
-	public String index(HttpSession session) {
+	public String index(HttpSession session, Model model) {
 		
 		if (session.getAttribute("count") == null) {
 			session.setAttribute("count", 0);
 		} else {
-			Integer currentCount = (Integer) session.getAttribute("count");
+			Integer currentCount = (Integer)session.getAttribute("count");
 			currentCount++;
 			session.setAttribute("count", currentCount);
 		}
