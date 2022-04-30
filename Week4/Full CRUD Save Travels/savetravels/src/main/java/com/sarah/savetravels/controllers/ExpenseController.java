@@ -16,7 +16,7 @@ import com.sarah.savetravels.models.Expense;
 import com.sarah.savetravels.services.ExpenseService;
 
 @Controller
-public class TravelsController {
+public class ExpenseController {
 	
 	// automatic constructor
 	@Autowired
