@@ -42,7 +42,7 @@
 	<!-- form for adding expenses to list -->
 	<div class="exp-box">
 	<h3>Add an Expense:</h3>
-	<form:form action="/create" method="post" modelAttribute="newExpense">
+	<form:form action="/expenses" method="post" modelAttribute="newExpense">
 		<div class="row mb-3">
 			<form:label path="name" class="col-sm-2 col-form-label">Expense Name:</form:label>
 			<div class="col-sm-8">

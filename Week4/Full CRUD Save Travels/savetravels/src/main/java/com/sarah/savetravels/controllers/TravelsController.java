@@ -23,6 +23,11 @@ public class TravelsController {
 	private ExpenseService expenseService;
 	
 	@GetMapping("/")
+	public String home() {
+		return "redirect:/expenses";
+	}
+	
+	@GetMapping("/expenses")
 	public String index(Model model, @ModelAttribute("newExpense") Expense newExpense) {
 		// Get all Expenses in List
 		List<Expense> allExpenses = expenseService.getAllExpenses();
@@ -31,7 +36,7 @@ public class TravelsController {
 		return "index.jsp";
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/expenses")
 	public String createExpense(@Valid @ModelAttribute("newExpense") Expense newExpense, BindingResult results, Model model)
 	{
 		if(results.hasErrors()) {
@@ -40,6 +45,6 @@ public class TravelsController {
 			return "index.jsp";
 		}
 		expenseService.createExpense(newExpense);
-		return "redirect:/";
+		return "redirect:/expenses";
 	}
 }
