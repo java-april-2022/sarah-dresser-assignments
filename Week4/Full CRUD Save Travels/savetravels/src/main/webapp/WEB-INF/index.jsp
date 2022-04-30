@@ -22,7 +22,7 @@
 <div class="container">
 	<!-- table for reading items list -->
 	<table class="table table-striped">
-		<thead class="thead-dark">
+		<thead class="">
     		<tr>
       			<th scope="col">Expense</th>
       			<th scope="col">Vendor</th>
@@ -43,26 +43,34 @@
 	<div class="exp-box">
 	<h3>Add an Expense:</h3>
 	<form:form action="/create" method="post" modelAttribute="newExpense">
-		<p>
-			<form:label path="name">Expense Name:</form:label>
-			<form:input path="name"/>
+		<div class="row mb-3">
+			<form:label path="name" class="col-sm-2 col-form-label">Expense Name:</form:label>
+			<div class="col-sm-8">
+				<form:input path="name" class="form-control"/>
+			</div>
 			<form:errors class="text-danger" path="name"/>
-		</p>
-		<p>
-			<form:label path="vendor">Vendor:</form:label>
-			<form:input path="vendor"/>
+		</div>
+		<div class="row mb-3">
+			<form:label path="vendor" class="col-sm-2 col-form-label">Vendor:</form:label>
+			<div class="col-sm-8">
+				<form:input path="vendor" class="form-control"/>
+			</div>
 			<form:errors class="text-danger" path="vendor"/>
-		</p>
-		<p>
-			<form:label path="amount">Amount:</form:label>
-			<form:input path="amount"/>
+		</div>
+		<div class="row mb-3">
+			<form:label path="amount" class="col-sm-2 col-form-label">Amount:</form:label>
+			<div class="col-sm-8">
+				<form:input path="amount" class="form-control"/>
+			</div>
 			<form:errors class="text-danger" path="amount"/>
-		</p>
-		<p>
-			<form:label path="description">Description:</form:label>
-			<form:input path="description"/>
+		</div>
+		<div class="row mb-3">
+			<form:label path="description" class="col-sm-2 col-form-label">Description:</form:label>
+			<div class="col-sm-8">
+				<form:input path="description" class="form-control"/>
+			</div>
 			<form:errors class="text-danger" path="description"/>
-		</p>
+		</div>
 		<button class="btn btn-primary">Add</button>
 	</form:form>
 	</div>
