@@ -23,18 +23,20 @@ public class TravelsController {
 	private ExpenseService expenseService;
 	
 	@GetMapping("/")
-	public String index(Model travelModel, @ModelAttribute("newExpense") Expense newExpense) {
+	public String index(Model model, @ModelAttribute("newExpense") Expense newExpense) {
 		// Get all Expenses in List
 		List<Expense> allExpenses = expenseService.getAllExpenses();
 		// Add allExpenses list to model
-		travelModel.addAttribute("expenses", allExpenses);
+		model.addAttribute("expenses", allExpenses);
 		return "index.jsp";
 	}
 	
 	@PostMapping("/create")
-	public String createExpense(@Valid @ModelAttribute("newExpense") Expense newExpense, BindingResult results)
+	public String createExpense(@Valid @ModelAttribute("newExpense") Expense newExpense, BindingResult results, Model model)
 	{
 		if(results.hasErrors()) {
+			List<Expense> allExpenses = expenseService.getAllExpenses();
+			model.addAttribute("expenses", allExpenses);
 			return "index.jsp";
 		}
 		expenseService.createExpense(newExpense);
