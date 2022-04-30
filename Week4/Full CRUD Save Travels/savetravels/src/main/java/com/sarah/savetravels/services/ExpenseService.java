@@ -12,17 +12,30 @@ import com.sarah.savetravels.repositories.ExpenseRepository;
 public class ExpenseService {
 
 	@Autowired
-	private ExpenseRepository travelRepo;
+	private ExpenseRepository expenseRepo;
 	
 	// Get all Expenses
 	public List<Expense> getAllExpenses(){
-		return travelRepo.findAll();
+		return expenseRepo.findAll();
 	}
 	
-	// Create/add new expense
-	public void createExpense(Expense expense) {
-		travelRepo.save(expense);
+	// Get expense from id
+	public Expense getOne(Long id) {
+		return expenseRepo.findById(id).orElse(null);
 	}
 	
+	// Create/add new expense -- also saves edit
+	public void saveExpense(Expense expense) {
+		expenseRepo.save(expense);
+	}
+//	
+//	// Edit response
+//	public void update(Expense expense) {
+//		expenseRepo.save(expense);
+//	}
+//	
 	// Delete expense
+	public void delete(Long id) {
+		expenseRepo.deleteById(id);
+	}
 }

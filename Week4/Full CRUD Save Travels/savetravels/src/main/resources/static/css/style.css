@@ -1,4 +1,4 @@
-header{
+.index-header{
 	padding: 10px;
 	text-align: center;
 	color: #007bff;
@@ -7,10 +7,26 @@ header{
 	border-radius: 20px; */
 }
 
+.edit-header{
+	display: flex;
+	margin: 10px 10%;
+	justify-content: space-between;
+	color: green;
+}
+
 .exp-box{
 	margin: 20px 10%;
 }
 
 .exp-box h3{
 	color:#007bff;
+}
+
+.links{
+	display: flex;
+	align-items: baseline;
+}
+
+.btn-danger{
+	margin-left: 20px;
 }
