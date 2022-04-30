@@ -14,13 +14,19 @@
 </head>
 <body>
 
-<h1>Discover extraordinary NFTs</h1>
+<h1>Discover extraordinary NFTs!</h1>
+
 <div class="container">
+	<p>
+		<a href="/">Dashboard</a>
+		<a href="/new">New Art</a>
+	</p>
 	<table class="table table-dark">
 		<thead>
 			<tr>
 				<th>Art Name</th>
 				<th>Description</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,6 +34,7 @@
 			<tr>
 				<td>${ art.title }</td>
 				<td>${ art.description }</td>
+				<td><a href="/edit/${art.id}">Edit</a> | <a href="/delete/${art.id }">Delete</a></td>
 			</tr>
 			</c:forEach>
 		</tbody>

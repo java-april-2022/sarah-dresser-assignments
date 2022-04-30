@@ -27,6 +27,18 @@ public class ArtService {
 	}
 	
 	// Create new art
+	public void createArt(Art art) {
+		artRepo.save(art);
+	}
+	
 	// Update Art
 	// Delete Art
+	public void deleteArt(Art art) {
+		artRepo.delete(art);
+	}
+	
+	//Get Art details by id
+	public Art artDetails(Long id) {
+return artRepo.findById(id).orElse(null);
+	}
 }

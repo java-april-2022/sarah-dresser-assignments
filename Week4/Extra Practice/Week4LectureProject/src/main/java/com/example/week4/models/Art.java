@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="arts")
@@ -13,8 +15,16 @@ public class Art {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank
+	@Size(min=2, max=200)
 	private String title;
+	
+	@NotBlank
+	@Size(min=2, max=200)
 	private String description;
+	
+	private String url;
 	
 	//GETTERS & SETTERS
 	public Long getId() {
@@ -34,6 +44,12 @@ public class Art {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	
