@@ -1,0 +1,16 @@
+header{
+	padding: 10px;
+	text-align: center;
+	color: #007bff;
+	/* width: 60%;
+	margin: 0 auto;
+	border-radius: 20px; */
+}
+
+.exp-box{
+	margin: 20px 10%;
+}
+
+.exp-box h3{
+	color:#007bff;
+}

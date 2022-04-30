@@ -1,0 +1,43 @@
+package com.sarah.savetravels.controllers;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.sarah.savetravels.models.Expense;
+import com.sarah.savetravels.services.ExpenseService;
+
+@Controller
+public class TravelsController {
+	
+	// automatic constructor
+	@Autowired
+	private ExpenseService expenseService;
+	
+	@GetMapping("/")
+	public String index(Model travelModel, @ModelAttribute("newExpense") Expense newExpense) {
+		// Get all Expenses in List
+		List<Expense> allExpenses = expenseService.getAllExpenses();
+		// Add allExpenses list to model
+		travelModel.addAttribute("expenses", allExpenses);
+		return "index.jsp";
+	}
+	
+	@PostMapping("/create")
+	public String createExpense(@Valid @ModelAttribute("newExpense") Expense newExpense, BindingResult results)
+	{
+		if(results.hasErrors()) {
+			return "index.jsp";
+		}
+		expenseService.createExpense(newExpense);
+		return "redirect:/";
+	}
+}
