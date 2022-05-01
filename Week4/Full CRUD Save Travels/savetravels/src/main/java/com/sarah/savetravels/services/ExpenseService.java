@@ -19,6 +19,16 @@ public class ExpenseService {
 		return expenseRepo.findAll();
 	}
 	
+	// Get total of expenses amount
+	public double getTotalAmount() {
+		double total = 0;
+		List<Expense> allExpenses = expenseRepo.findAll();
+		for(Expense expense : allExpenses) {
+			total += expense.getAmount();
+		}
+		return total;
+	}
+	
 	// Get expense from id
 	public Expense getOne(Long id) {
 		return expenseRepo.findById(id).orElse(null);

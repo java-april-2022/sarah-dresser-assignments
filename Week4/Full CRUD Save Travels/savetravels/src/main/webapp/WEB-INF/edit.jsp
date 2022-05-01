@@ -14,8 +14,8 @@
 
 </head>
 <body>
-<div class="edit-header">
-	<h3>Edit an Expense:</h3>
+<div class="header">
+	<h3 style="color:green">Edit an Expense:</h3>
 	<a href="/expenses">Go Back</a>
 </div>
 <div class="exp-box">

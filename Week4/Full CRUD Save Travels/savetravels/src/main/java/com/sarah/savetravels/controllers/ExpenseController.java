@@ -36,6 +36,8 @@ public class ExpenseController {
 		List<Expense> allExpenses = expenseService.getAllExpenses();
 		// Add allExpenses list to model
 		model.addAttribute("expenses", allExpenses);
+		// Get total amount of expenses
+		model.addAttribute("totalAmount", expenseService.getTotalAmount());
 		return "index.jsp";
 	}
 	
@@ -56,6 +58,13 @@ public class ExpenseController {
 		Expense expense = expenseService.getOne(id);
 		model.addAttribute("expense", expense);
 		return "edit.jsp";
+	}
+	
+	@GetMapping("/expenses/show/{id}")
+	public String show(@PathVariable("id") Long id, Model model) {
+		Expense expense = expenseService.getOne(id);
+		model.addAttribute("expense", expense);
+		return "show.jsp";
 	}
 	
 	@PutMapping("/expenses/{id}")

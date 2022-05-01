@@ -21,8 +21,8 @@
 
 <div class="container">
 	<!-- table for reading items list -->
-	<table class="table table-striped">
-		<thead class="">
+	<table class="table table-striped table-bordered">
+		<thead>
     		<tr>
       			<th scope="col">Expense</th>
       			<th scope="col">Vendor</th>
@@ -48,6 +48,12 @@
 		    </tr>
 		    </c:forEach>
 		</tbody>
+		<tfoot>
+			<tr class="table-info">
+				<td colspan="2">Total:</td>
+				<td colspan="2"><fmt:formatNumber value="${ totalAmount }" type="currency"/></td>
+			</tr>
+		</tfoot>
 	</table>
 	<!-- form for adding expenses to list -->
 	<div class="exp-box">

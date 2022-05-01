@@ -7,11 +7,10 @@
 	border-radius: 20px; */
 }
 
-.edit-header{
+.header{
 	display: flex;
-	margin: 10px 10%;
+	margin: 20px 10%;
 	justify-content: space-between;
-	color: green;
 }
 
 .exp-box{
@@ -29,4 +28,9 @@
 
 .btn-danger{
 	margin-left: 20px;
+}
+
+.show-box{
+	margin: 0 10%;
+	padding: 20px;
 }
