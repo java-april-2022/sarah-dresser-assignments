@@ -60,8 +60,9 @@ public class MainController {
 	}
 	
 	@PostMapping("/create-ninja")
-	public String addNinja(@Valid @ModelAttribute("newNinja") Ninja newNinja, BindingResult results) {
+	public String addNinja(@Valid @ModelAttribute("newNinja") Ninja newNinja, BindingResult results, Model model) {
 		if(results.hasErrors()) {
+			model.addAttribute("allDojos", dojoService.getAllDojos());
 			return "newNinja.jsp";
 		} else {
 			ninjaService.save(newNinja);

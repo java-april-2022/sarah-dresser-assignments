@@ -21,11 +21,11 @@
 	<div class="form-box">
 		<form:form action="/create-dojo" method="post" modelAttribute="newDojo">
 			<div class="row mb-3">
+				<form:errors path="name" class="text-danger"/>
 				<form:label path="name" class="col-sm-2 col-form-label">Dojo Name:</form:label>
 				<div class="col-sm-8">
 					<form:input path="name" class="form-control"/>
 				</div>
-				<form:errors path="name" class="text-danger"/>
 			</div>
 			<button class="btn btn-primary">Create</button>
 		</form:form>

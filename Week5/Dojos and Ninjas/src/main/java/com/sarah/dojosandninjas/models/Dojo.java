@@ -10,7 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="dojos")
@@ -19,6 +23,8 @@ public class Dojo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank
+	@Size(min=2, max=200)
 	private String name;
 	@Column(updatable=false)
 	private Date createdAt;
@@ -28,6 +34,23 @@ public class Dojo {
 	
 	public Dojo() {
 		
+	}
+	
+	public Dojo(String name, Date createdAt, Date updatedAt, List<Ninja> ninjas) {
+		this.name=name;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.ninjas = ninjas;
+	}
+	
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+	
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
 	}
 
 	// GETTERS & SETTERS

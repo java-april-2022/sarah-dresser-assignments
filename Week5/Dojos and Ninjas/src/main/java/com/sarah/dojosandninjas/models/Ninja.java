@@ -10,7 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="ninjas")
@@ -21,8 +27,14 @@ public class Ninja {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	// member variables
+	@NotBlank
+	@Size(min=2, max=200)
 	private String firstName;
+	@NotBlank
+	@Size(min=2, max=200)
 	private String lastName;
+	@NotNull
+	@Min(value=1)
 	private int age;
 	@Column(updatable=false)
 	private Date createdAt;
@@ -33,6 +45,25 @@ public class Ninja {
 	
 	public Ninja() {
 		
+	}
+	
+	public Ninja(String firstName, String lastName, int age, Date createdAt, Date updatedAt, Dojo dojo) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.dojo = dojo;
+	}
+	
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+	
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
 	}
 
 	// GETTERS & SETTERS
