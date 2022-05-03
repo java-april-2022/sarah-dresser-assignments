@@ -12,15 +12,20 @@ import com.sarah.dojosandninjas.repositories.DojoRepository;
 public class DojoService {
 	
 	@Autowired
-	private DojoRepository dojoRepo;
+	private DojoRepository repo;
 	
 	// Get all Dojos
 	public List<Dojo> getAllDojos(){
-		return dojoRepo.findAll();
+		return repo.findAll();
 	}
 	
 	// Get one Dojo by ID
 	public Dojo getById(Long id) {
-		return dojoRepo.findById(id).orElse(null);
+		return repo.findById(id).orElse(null);
+	}
+	
+	// Save or update a dojo
+	public void save(Dojo dojo) {
+		repo.save(dojo);
 	}
 }
