@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sarah.dojosandninjas.models.Dojo;
 import com.sarah.dojosandninjas.models.Ninja;
 import com.sarah.dojosandninjas.services.DojoService;
+import com.sarah.dojosandninjas.services.NinjaService;
 
 @Controller
 public class MainController {
 	
 	@Autowired
 	private DojoService dojoService;
+	@Autowired
+	private NinjaService ninjaService;
 	
 	@GetMapping("/")
 	public String home() {
@@ -53,5 +56,15 @@ public class MainController {
 	public String newNinja(@ModelAttribute("newNinja") Ninja newNinja, Model model) {
 		model.addAttribute("allDojos", dojoService.getAllDojos());
 		return "newNinja.jsp";
+	}
+	
+	@PostMapping("/create-ninja")
+	public String addNinja(@Valid @ModelAttribute("newNinja") Ninja newNinja, BindingResult results) {
+		if(results.hasErrors()) {
+			return "newNinja.jsp";
+		} else {
+			ninjaService.save(newNinja);
+			return "redirect:/dojos";
+		}
 	}
 }
