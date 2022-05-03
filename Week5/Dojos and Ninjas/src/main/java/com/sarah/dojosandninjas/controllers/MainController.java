@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sarah.dojosandninjas.models.Dojo;
@@ -66,5 +67,13 @@ public class MainController {
 			ninjaService.save(newNinja);
 			return "redirect:/dojos";
 		}
+	}
+	
+	@GetMapping("/dojo/{id}")
+	public String show(@PathVariable("id") Long id, Model model) {
+		Dojo dojo = dojoService.getById(id);
+		model.addAttribute("dojo", dojo);
+		model.addAttribute("ninjas", ninjaService.getByDojo(dojo));
+		return "show.jsp";
 	}
 }

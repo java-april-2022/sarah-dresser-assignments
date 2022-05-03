@@ -6,33 +6,35 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Dojos</title>
+<title>Show Dojo</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <div class="container">
-	<h1>Welcome to our Dojos!</h1>
-	
+	<div class="header">
+		<h1>${ dojo.name } Location Ninjas</h1>
+		<a href="/dojos">Home</a>
+	</div>
 	<table class="table table-light table-striped">
-		<thead class="thead-light">
+		<thead>
 			<tr>
-				<th>Dojo Locations</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Age</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ allDojos }" var="dojo">
-				<tr>
-					<td><a href="/dojo/${ dojo.id }">${ dojo.name }</a></td>
-				</tr>
+			<c:forEach items="${ ninjas }" var="ninja">
+			<tr>
+				<td>${ ninja.firstName }</td>
+				<td>${ ninja.lastName }</td>
+				<td>${ ninja.age }</td>
+			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	
-	<span class="links">
-		<a href="/dojos/new">Register New Dojo</a>
-		<a href="/ninjas/new">Register New Ninja</a>
-	</span>
 </div>
+
 </body>
 </html>
