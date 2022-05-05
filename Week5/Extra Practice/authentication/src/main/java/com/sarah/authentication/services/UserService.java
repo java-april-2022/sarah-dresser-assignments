@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.sarah.authentication.models.LoginUser;
 import com.sarah.authentication.models.User;
 import com.sarah.authentication.repositories.UserRepository;
 
@@ -23,6 +24,7 @@ public class UserService {
 	}
 	
 	// Register & Login Methods
+	
 	public User register(User newUser, BindingResult result) {
 		
 		// creating instance of potential user
@@ -31,27 +33,64 @@ public class UserService {
 		// if email is already in database,
 		// reject potential user
 		if(potentialUser.isPresent()) {
+			System.out.println("From UserService: email already in DB");
 			result.rejectValue("email", "Matches", "An account with that email already exists!");
 		}
 		
 		// reject if password != confirm
-		if(!newUser.getPassword().equals(newUser.getConfirm())) {
-			result.rejectValue("password", "Matches", "Confirm password must match!");
+		 if(!newUser.getPassword().equals(newUser.getConfirm())) {
+		 System.out.println("From UserService: passwords do not match");
+		 result.rejectValue("confirm", "Matches", "Passwords must match"); }
+		
+		 // if errors in form, return null
+		 if(result.hasErrors()) { 
+			 System.out.println("errors detected"); 
+			 return null;
+		 }
+		
+		// if all checks pass, continue
+		
+		// hash pw & save to user
+		String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+		newUser.setPassword(hashed);
+		
+		User saveUser = repo.save(newUser);
+		System.out.println(saveUser);
+		return saveUser;
+	}
+	
+	public User login(LoginUser newLogin, BindingResult result) {
+		
+		Optional<User> potentialUser = repo.findByEmail(newLogin.getEmail());
+		
+		// find user in the DB by email
+		if(!potentialUser.isPresent()) {
+			result.rejectValue("email", "Matches", "Email not found");
 		}
 		
-		// if errors in form, return null
+		// User exists, so retrieve user from DB
+		User user = potentialUser.get();
+		
+		// reject if BCrypt password match fails
+		if(!BCrypt.checkpw(newLogin.getPassword(), user.getPassword())) {
+			result.rejectValue("password", "Matches", "Invalid Password");
+		}
+		
+		// if any errors, return null
 		if(result.hasErrors()) {
 			return null;
 		}
 		
-		// if all checks pass, hash password and 
-		// save user to db
-		
-		// hashed pw
-		String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
-		// save hashed pw to user
-		newUser.setPassword(hashed);
-		
-		return repo.save(newUser);
+		// otherwise, all is good. return user
+		return user;
+	}
+	
+	public User findById(Long id) {
+		Optional<User> potentialUser = repo.findById(id);
+		if (potentialUser.isPresent()) {
+			return potentialUser.get();
+		}
+		System.out.println("From UserService: user not found");
+		return null;
 	}
 }

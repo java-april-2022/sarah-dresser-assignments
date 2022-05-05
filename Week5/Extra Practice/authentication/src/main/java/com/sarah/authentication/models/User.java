@@ -18,6 +18,9 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	private String firstName;
+	private String lastName;
+	
 	@NotEmpty(message="Username is required!")
 	@Size(min=3, max=30, message="Username must be between 3 and 30 characters")
 	private String username;
@@ -32,6 +35,7 @@ public class User {
 	
 	// Transient == not saved in database. Checks confirm password same as password
 	@Transient
+	@NotEmpty
 	@Size(min=8, max=128, message="Password must be between 8 and 128 characters")
 	private String confirm;
 	
@@ -45,8 +49,26 @@ public class User {
 	}
 
 	// GETTERS & SETTERS
+	
+	
 	public Long getId() {
 		return id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public void setId(Long id) {
