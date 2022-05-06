@@ -24,7 +24,8 @@
 		</div>
 	</div>
 	
-	<table></table>
+	<table>
+	</table>
 </div>
 </body>
 </html>

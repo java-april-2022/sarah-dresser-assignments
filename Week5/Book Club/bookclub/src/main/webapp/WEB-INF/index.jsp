@@ -6,15 +6,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login and Registration</title>
+<title>Book Club</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <div class="container">
 	<div class="header">
-		<h1>Welcome!</h1>
-		<h5>Join our growing community.</h5>
+		<h1>Book Club</h1>
+		<p>A place for friends to share thoughts on books.</p>
 	</div>
 	
 	<div class="row">
@@ -27,13 +27,6 @@
 						<form:input path="name" class="form-control"/>
 					</div>
 					<form:errors path="name" class="text-danger"/>
-				</div>
-				<div class="row mb-3">
-					<form:label path="username" class="col-sm-3 col-form-label">User Name:</form:label>
-					<div class="col-sm-8">
-						<form:input path="username" class="form-control"/>
-					</div>
-					<form:errors path="username" class="text-danger"/>
 				</div>
 				<div class="row mb-3">
 					<form:label path="email" class="col-sm-3 col-form-label">Email:</form:label>
