@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.sarah.bookclub.models.Book;
 import com.sarah.bookclub.models.LoginUser;
 import com.sarah.bookclub.models.User;
 import com.sarah.bookclub.service.UserService;
@@ -46,10 +47,10 @@ public class MainController {
 		// storing user ID in session
 		session.setAttribute("userId", user.getId());
 		
-		return "redirect:/dashboard";
+		return "redirect:/books";
 	}
 	
-	@GetMapping("/dashboard")
+	@GetMapping("/books")
 	public String home(Model model, HttpSession session) {
 		
 		// checking user is logged in(session)
@@ -62,16 +63,21 @@ public class MainController {
 		model.addAttribute("user", userService.findById((Long) session.getAttribute("userId")));
 		return "dashboard.jsp";
 	}
+
+	@GetMapping("/books/new")
+	public String newBook(Model model, HttpSession session) {
+		
+		// binding empty Book object
+		model.addAttribute("newBook", new Book());
+		// adding poster(user)id from session
+		model.addAttribute("sessionId", session.getAttribute("userId"));
+		return "new.jsp";
+	}
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		
 		session.invalidate();
 		return "redirect:/";
-	}
-	
-	@GetMapping("/books/new")
-	public String newBook() {
-		return "new.jsp";
 	}
 }
