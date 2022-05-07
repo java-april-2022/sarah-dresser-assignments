@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sarah.bookclub.models.Book;
 import com.sarah.bookclub.models.LoginUser;
 import com.sarah.bookclub.models.User;
+import com.sarah.bookclub.service.BookService;
 import com.sarah.bookclub.service.UserService;
 
 @Controller
@@ -21,6 +22,8 @@ public class MainController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BookService bookService;
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -50,6 +53,23 @@ public class MainController {
 		return "redirect:/books";
 	}
 	
+	@PostMapping("/login")
+	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, BindingResult results, Model model, HttpSession session) {
+		
+		User user = userService.login(newLogin, results);
+		// checking for errors in form
+		if(results.hasErrors()) {
+			// binding empty object to JSP
+			model.addAttribute("newUser", new User());
+			return "index.jsp";
+		}
+		
+		// continue, get ID from DB, store in session
+		session.setAttribute("userId", user.getId());
+		
+		return "redirect:/books";
+	}
+	
 	@GetMapping("/books")
 	public String home(Model model, HttpSession session) {
 		
@@ -72,6 +92,16 @@ public class MainController {
 		// adding poster(user)id from session
 		model.addAttribute("sessionId", session.getAttribute("userId"));
 		return "new.jsp";
+	}
+	
+	@PostMapping("/books/add")
+	public String addBook(@Valid @ModelAttribute("newBook") Book newBook, BindingResult results) {
+		// check for errors
+		if(results.hasErrors()) {
+			return "new.jsp";
+		}
+		bookService.saveBook(newBook);
+		return "redirect:/books";
 	}
 	
 	@GetMapping("/logout")

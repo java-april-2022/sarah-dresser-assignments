@@ -35,4 +35,9 @@ public class BookService {
 		System.out.println("From BookService: book not found");
 		return null;
 	}
+	
+	// Save new book to database
+	public void saveBook(Book book) {
+		bookRepo.save(book);
+	}
 }

@@ -25,6 +25,19 @@
 	</div>
 	
 	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Author Name</th>
+				<th>Posted By</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach>
+		
+		</c:forEach>
+		</tbody>
 	</table>
 </div>
 </body>

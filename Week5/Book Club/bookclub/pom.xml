@@ -51,6 +51,8 @@
 		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>jstl</artifactId>
+		    <version>1.2</version><!--$NO-MVN-MAN-VER$-->
+        	<scope>provided</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
