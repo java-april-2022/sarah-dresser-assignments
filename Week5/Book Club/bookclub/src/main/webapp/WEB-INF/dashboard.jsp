@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	
-	<table>
+	<table class="table table-light">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -34,8 +34,13 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach>
-		
+		<c:forEach items="${ allBooks }" var="book">
+			<tr>
+				<td>${ book.id }</td>
+				<td><a href="/books/${ book.id }">${ book.name }</a></td>
+				<td>${ book.author }</td>
+				<td>${ book.user.name }</td>
+			</tr>
 		</c:forEach>
 		</tbody>
 	</table>

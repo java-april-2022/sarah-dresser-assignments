@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sarah.bookclub.models.Book;
 import com.sarah.bookclub.models.LoginUser;
@@ -81,6 +83,7 @@ public class MainController {
 		// getting user info from session
 		// & saving in model
 		model.addAttribute("user", userService.findById((Long) session.getAttribute("userId")));
+		model.addAttribute("allBooks", bookService.getAllBooks());
 		return "dashboard.jsp";
 	}
 
@@ -101,6 +104,33 @@ public class MainController {
 			return "new.jsp";
 		}
 		bookService.saveBook(newBook);
+		return "redirect:/books";
+	}
+	
+	@GetMapping("/books/{id}")
+	public String view(@PathVariable("id") Long id, Model model, HttpSession session) {
+		// checking user is logged in(session)
+		if(session.getAttribute("userId") == null) {
+			return "redirect:/";
+		}
+		model.addAttribute("book", bookService.getById(id));
+		model.addAttribute("userId", session.getAttribute("userId"));
+		return "view.jsp";
+	}
+	
+	@GetMapping("/books/{id}/edit")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		Book book = bookService.getById(id);
+		model.addAttribute("book", book);
+		return "edit.jsp";
+	}
+	
+	@PostMapping("/books/update/{id}")
+	public String update(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+		if(result.hasErrors()) {
+			return "edit.jsp";
+		}
+		bookService.saveBook(book);
 		return "redirect:/books";
 	}
 	
