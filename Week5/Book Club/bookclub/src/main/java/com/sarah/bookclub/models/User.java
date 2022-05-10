@@ -1,4 +1,4 @@
-package com.sarah.bookclub.models;
+	package com.sarah.bookclub.models;
 
 import java.util.Date;
 

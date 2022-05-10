@@ -32,6 +32,24 @@ public class UserService {
 	
 	public User register(User newUser, BindingResult result) {
 		
-		// create instance of potential user	
+		// creating instance of potential user
+		
+		
+		// if email is already in database,
+		// reject potential user
+		
+		// reject if password != confirm
+		
+		// if errors in form, return null
+		
+		// if all checks pass, continue
+		
+		// hash pw & save to user
+		
+		// saving to repository
+	}
+	
+	public User login() {
+		
 	}
 }
