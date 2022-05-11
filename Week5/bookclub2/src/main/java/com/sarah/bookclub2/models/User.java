@@ -13,6 +13,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 @Table(name="users")
 public class User {
@@ -34,7 +37,9 @@ public class User {
 	@NotEmpty
 	private String confirm;
 	@Column(updatable=false)
+	@CreationTimestamp
 	private Date createdAt;
+	@UpdateTimestamp
 	private Date updatedAt;
 	
 	public User() {
