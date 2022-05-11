@@ -26,11 +26,12 @@ public class UserService {
 	}
 	
 	// check if user is in session
-	public boolean inSession(HttpSession session){
+	// adapted from Week 6 Lesson 1 Lecture
+	public User fromSession(HttpSession session){
 		if(session.getAttribute("userId") == null) {
-			return false;
+			return null;
 		}
-		return true;
+		return userRepo.findById((Long) session.getAttribute("userId")).get();
 	}
 	
 	// Register and Login Methods
@@ -41,17 +42,22 @@ public class UserService {
 		// creating instance of potential user
 		Optional<User> potentialUser = userRepo.findByEmail(newUser.getEmail());
 		
+		/*
+		 * System.out.println("potentialUser = " + potentialUser);
+		 * System.out.println("Email = " + newUser.getEmail());
+		 */
+		
 		// if email is already in database,
 		// reject user
-		if(potentialUser != null) {
+		if(!potentialUser.isEmpty()) {
 			System.out.println("From UserService: email already in DB");
-			result.rejectValue("email", "An account with that email already exists");
+			result.rejectValue("email", "matches", "An account with that email already exists");
 		}
 		
 		// reject if password != confirm
-		if(newUser.getPassword() != newUser.getConfirm()) {
-			 System.out.println("From UserService: passwords do not match");
-			 result.rejectValue("confirm", "Passwords must match");
+		if(!newUser.getPassword().equals(newUser.getConfirm())) {
+			System.out.println("From UserService: passwords do not match");
+			result.rejectValue("confirm", "matches", "Passwords must match");
 		}
 		
 		// if errors in form, return null
@@ -76,7 +82,7 @@ public class UserService {
 		// find user in DB by email
 		if(potentialUser == null) {
 			System.out.println("From UserService: email not found");
-			result.rejectValue("email", "Email not found");
+			result.rejectValue("email", "matches", "Email not found");
 		}
 		
 		// continue
