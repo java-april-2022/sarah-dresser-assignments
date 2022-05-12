@@ -13,12 +13,13 @@
 </head>
 <body>
 <div class="container">
-	
+	<div class="header">
 	<h1>Home Page</h1>
 	
 	<div class="links">
 		<a href="/products/new">New Product</a><br/>
 		<a href="/categories/new">New Category</a>
+	</div>
 	</div>
 	
 	<table class="table table-light table-bordered">

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,11 +26,23 @@
 		</c:forEach>
 	</div>
 	
-	<form:form action="/products/${ product.id }/add-category" method="post">
+	<form action="/products/${ product.id }/add-category" method="post">
+		<div class="row">
+				<label for="categoryId" class="form-control-label">Add Category:</label>
+				<select name="categoryId" class="form-control">
+				<c:forEach items="${ notCategories }" var="notCategory">
+					<option value="${ notCategory.id }">${ notCategory.name }</option>
+				</c:forEach>
+				</select>
+		</div>
+		<button class="btn btn-primary">Add</button>
+	</form>
+	<%-- 
+	<form:form action="/products/${ product.id }/add-category" method="post" modelAttribute="newProductCategory">
 		<div class="row mb-3">
-			<form:label path="id" class="col-sm-3 col-form-label">Add Category:</form:label>
+			<form:label path="name" class="col-sm-3 col-form-label">Add Category:</form:label>
 			<div class="col-sm-8">
-			<form:select path="id">
+			<form:select path="name">
 				<c:forEach items="${ notCategories }" var="notCategory">
 					<form:option value="${ notCategory.id }">${ notCategory.name }</form:option>
 				</c:forEach>
@@ -40,6 +51,7 @@
 		</div>
 		<button class="btn btn-primary">Add</button>
 	</form:form>
+	--%>
 	
 </div>
 
