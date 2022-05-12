@@ -1,5 +1,7 @@
 package com.sarah.productsandcategories.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sarah.productsandcategories.models.Category;
 import com.sarah.productsandcategories.models.Product;
@@ -78,12 +79,12 @@ public class MainController {
 		return "viewProduct.jsp";
 	}
 	
-	// not using model, because object does not need to be bound
 	@PostMapping("/products/{id}/add-category")
-	public String addCategory(@PathVariable("id") Long id, @RequestParam(value="categoryId") Long categoryId) {
+	public String addCategory(@PathVariable("id") Long id, Model model) {
 		Product product = productService.getById(id);
-		Category addedCategory = categoryService.getById(categoryId);
-		productService.addCategory(product, addedCategory);
+		Long categoryId = (Long) model.getAttribute("notCategory.id");
+		Category newProductCategory = categoryService.getById(categoryId);
+		productService.addCategory(product, newProductCategory);
 		return "redirect:/products/{id}";
 	}
 }
