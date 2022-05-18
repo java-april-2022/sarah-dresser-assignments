@@ -23,7 +23,7 @@
 			<form:errors path="name" class="text-danger"/>
 			<form:label path="name" class="col-sm-3 col-form-label">Title:</form:label>
 			<div class="col-sm-8">
-						<form:input path="name" class="form-control"/>
+				<form:input path="name" class="form-control"/>
 			</div>
 		</div>
 		<div class="row mb-3">

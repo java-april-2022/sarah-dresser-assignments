@@ -16,6 +16,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 @Table(name="dojos")
 public class Dojo {
@@ -24,10 +27,12 @@ public class Dojo {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank
-	@Size(min=2, max=200)
+	@Size(min=2, max=200, message="Name must be at least 2 characters")
 	private String name;
 	@Column(updatable=false)
+	@CreationTimestamp
 	private Date createdAt;
+	@UpdateTimestamp
 	private Date updatedAt;
 	@OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
 	private List<Ninja> ninjas;
@@ -36,10 +41,8 @@ public class Dojo {
 		
 	}
 	
-	public Dojo(String name, Date createdAt, Date updatedAt, List<Ninja> ninjas) {
+	public Dojo(String name, List<Ninja> ninjas) {
 		this.name=name;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
 		this.ninjas = ninjas;
 	}
 	

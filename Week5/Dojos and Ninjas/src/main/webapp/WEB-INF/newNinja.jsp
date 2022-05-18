@@ -24,6 +24,7 @@
 				<form:label path="dojo" class="col-sm-2 col-form-label">Dojo Name:</form:label>
 				<div class="col-sm-8">
 					<form:select path="dojo" class="form-control">
+						<form:option value="">Select Dojo</form:option>
 						<c:forEach items="${ allDojos }" var="dojo">
 						<form:option value="${ dojo.id }">${dojo.name}</form:option>
 						</c:forEach>
