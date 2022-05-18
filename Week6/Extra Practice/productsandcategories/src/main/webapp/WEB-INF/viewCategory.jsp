@@ -37,22 +37,6 @@
 		</div>
 		<button class="btn btn-primary">Add</button>
 	</form>
-	<%-- 
-	<form:form action="/products/${ product.id }/add-category" method="post" modelAttribute="newProductCategory">
-		<div class="row mb-3">
-			<form:label path="name" class="col-sm-3 col-form-label">Add Category:</form:label>
-			<div class="col-sm-8">
-			<form:select path="name">
-				<c:forEach items="${ notCategories }" var="notCategory">
-					<form:option value="${ notCategory.id }">${ notCategory.name }</form:option>
-				</c:forEach>
-			</form:select>
-			</div>
-		</div>
-		<button class="btn btn-primary">Add</button>
-	</form:form>
-	--%>
-	
 </div>
 
 </body>

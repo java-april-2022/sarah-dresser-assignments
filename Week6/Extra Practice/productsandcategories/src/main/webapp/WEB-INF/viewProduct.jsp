@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +26,22 @@
 		</c:forEach>
 	</div>
 	
-	<form:form action="/products/${ product.id }/add-category" method="post">
+	<form action="/products/${ product.id }/add-category" method="post">
+		<div class="row">
+    		<div class="col-md-4">
+		      <label for="categoryId">Add Category:</label>
+		      <select name="categoryId">
+			      <c:forEach items="${ notCategories }" var="notCategory">
+		      		<option value="${ notCategory.id }">${ notCategory.name }</option>
+			      </c:forEach>
+		      </select>
+		    </div>
+		</div>
+		<button class="btn btn-primary">Add</button>
+	</form>
+	
+	<%-- 
+	<form:form action="/products/${ product.id }/add-category">
 		<div class="row mb-3">
 			<form:label path="id" class="col-sm-3 col-form-label">Add Category:</form:label>
 			<div class="col-sm-8">
@@ -40,7 +54,7 @@
 		</div>
 		<button class="btn btn-primary">Add</button>
 	</form:form>
-	
+	 --%>
 </div>
 
 </body>
